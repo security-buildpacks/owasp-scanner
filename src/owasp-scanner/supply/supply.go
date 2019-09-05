@@ -43,6 +43,11 @@ type Supplier struct {
 func (s *Supplier) Run() error {
 	s.Log.BeginStep("Supplying owasp-scanner")
 
+	s.Log.Warning("Cache Directory Path: %v", s.Stager.CacheDir())
+	s.Log.Warning("Build Directory Path: %v", s.Stager.BuildDir())
+	s.Log.Warning("Deps Directory Path: %v", s.Stager.DepsDir())
+	s.Log.Warning("Dep Directory Path: %v", s.Stager.DepDir())
+
 	dep := libbuildpack.Dependency{Name: "java", Version: "0.0.0"}
 	if err := s.Installer.InstallDependency(dep, s.Stager.CacheDir()); err != nil {
 		return err
@@ -55,4 +60,3 @@ func (s *Supplier) Run() error {
 
 	return nil
 }
-
