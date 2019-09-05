@@ -6,8 +6,8 @@ dependencies:
 - name: java
   uri: https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u222-b10/OpenJDK8U-jre_x64_linux_hotspot_8u222b10.tar.gz
   version: 0.0.0
-  sha256: a418ce895c8bf3ca2e7b2f423f038b8b093941684c9430f2e40da0982e12b52d 
-  cf_stacks: 
+  sha256: a418ce895c8bf3ca2e7b2f423f038b8b093941684c9430f2e40da0982e12b52d
+  cf_stacks:
   - cflinuxfs3
 - name: dependency-check
   uri: https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.2.1-release.zip
@@ -18,10 +18,7 @@ dependencies:
 include_files:
   - README.md
   - VERSION
-  - bin/detect
   - bin/compile
   - bin/supply
-  - bin/finalize
-  - bin/release
   - manifest.yml
 pre_package: scripts/build.sh
