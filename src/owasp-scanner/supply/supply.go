@@ -11,6 +11,7 @@ type Stager interface {
 	DepDir() string
 	DepsIdx() string
 	DepsDir() string
+	CacheDir() string
 }
 
 type Manifest interface {
@@ -43,14 +44,15 @@ func (s *Supplier) Run() error {
 	s.Log.BeginStep("Supplying owasp-scanner")
 
 	dep := libbuildpack.Dependency{Name: "java", Version: "0.0.0"}
-	if err := s.Installer.InstallDependency(dep, s.Stager.DepsDir()); err != nil {
+	if err := s.Installer.InstallDependency(dep, s.Stager.CacheDir()); err != nil {
 		return err
 	}
 
 	dep2 := libbuildpack.Dependency{Name: "dependency-check", Version: "0.0.0"}
-	if err := s.Installer.InstallDependency(dep2, s.Stager.DepsDir()); err != nil {
+	if err := s.Installer.InstallDependency(dep2, s.Stager.CacheDir()); err != nil {
 		return err
 	}
 
 	return nil
 }
+
