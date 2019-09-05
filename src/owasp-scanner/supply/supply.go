@@ -47,8 +47,8 @@ func (s *Supplier) Run() error {
 		return err
 	}
 
-	dep = libbuildpack.Dependency{Name: "dependency-check", Version: "0.0.0"}
-	if err := s.Installer.InstallDependency(dep, s.Stager.DepsDir()); err != nil {
+	dep2 := libbuildpack.Dependency{Name: "dependency-check", Version: "0.0.0"}
+	if err := s.Installer.InstallDependency(dep2, s.Stager.DepsDir()); err != nil {
 		return err
 	}
 
