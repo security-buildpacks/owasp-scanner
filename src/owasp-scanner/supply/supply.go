@@ -42,12 +42,12 @@ type Supplier struct {
 func (s *Supplier) Run() error {
 	s.Log.BeginStep("Supplying owasp-scanner")
 
-	dep := libbuildpack.Dependency{Name: "java", Version: "8.222"}
+	dep := libbuildpack.Dependency{Name: "java", Version: "0.0.0"}
 	if err := s.Installer.InstallDependency(dep, s.Stager.DepsDir()); err != nil {
 		return err
 	}
 
-	dep = libbuildpack.Dependency{Name: "dependency-check", Version: "5.2.1"}
+	dep = libbuildpack.Dependency{Name: "dependency-check", Version: "0.0.0"}
 	if err := s.Installer.InstallDependency(dep, s.Stager.DepsDir()); err != nil {
 		return err
 	}
